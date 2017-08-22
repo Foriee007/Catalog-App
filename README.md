@@ -43,7 +43,7 @@ You can visit http://18.220.158.181 for the website deployed.
 
       To login
       
-      ssh -i .ssh/grader_udacity grader@34.210.194.203 -p 2200
+      ssh -i .ssh/grader_udacity grader@18.220.158.181 -p 2200
       ```
 
 ## Create a new user named grader
