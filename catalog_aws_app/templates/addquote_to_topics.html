@@ -1,0 +1,60 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Add Quote Phase</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-md-offset-1 padding-top">
+        <form class="form-horizontal" action="{{url_for('addItem')}}" method = "post">
+            <div class="form-group">
+                <label for="name" class="col-md-2 control-label">Author:</label>
+                <div class="col-md-10">
+                    <input type ="text" maxlength="100" class="form-control" name="name" placeholder="Author Name Here!">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="col-md-2 control-label">Quote Phase:</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" maxlength="250" rows="3" name="description" placeholder"Quote Phase Here!"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="picture" class="col-md-2 control-label">Picture:</label>
+                <div class="col-md-10">
+                    <input type ="url" maxlength="100" class="form-control" name="picture" placeholder="http://www.example.com">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="category" class="col-md-2 control-label">Topics:</label>
+                <div class="col-md-10">
+                    <select name="category" class="form-control">
+                    {% for c in categories %}
+                        <option value="{{c.name}}">{{c.name}}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <button type="submit" class="btn btn-default" id="submit" type="submit">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save</button>
+
+                    <a href="{{url_for('showCatalog')}}">
+                        <button class="btn btn-default delete" type="button">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

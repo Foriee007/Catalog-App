@@ -1,0 +1,32 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="row">
+{% include "quotetopics.html" %}
+
+    <div class="col-md-9">
+        <h2> - by {{item.name}}</h2>
+        <div id="mycarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                <img src="{{ item.picture }}" class="img-responsive">
+                    <div class="carousel-caption">
+                        <h1 class="gradient-text">{{ item.description }}</h1>
+                        <p><cite>– {{item.name}}</cite></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <div class="addanddelete">
+            <a href = "{{url_for('editItem',
+                    category_name = item.category.name,
+                    item_name = item.name)}}" class="btn btn-default">Edit</a>
+            <a href = "{{url_for('deleteItem',
+                    category_name = item.category.name,
+                    item_name = item.name)}}" class="btn btn-default">Delete</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

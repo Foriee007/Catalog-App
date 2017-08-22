@@ -1,0 +1,27 @@
+{% extends "mainlayout.html" %}
+{% block content %}
+{% include "header.html" %}
+{% include "flash.html" %}
+
+<div class="row">
+{% include "quotetopics.html" %}
+
+    <div class="col-md-9">
+        <h2>Latest Quotes</h2>
+        <div class="list-group">
+        {% for item in items %}
+            <a href="{{url_for('showItem',
+                        category_name = item.category.name,
+                        item_name = item.name)}}"
+                class="list-group-item item">
+                {{ item.name }}
+                ({{ item.category.name }})
+                <p class="small">Last update: {{ item.date.strftime("%-d-%b-%Y at %I:%M %p") }}</p>
+            </a>
+        {% endfor %}
+        </div>
+        <hr>
+        <a href="{{url_for('addItem')}}" class="btn btn-default">Add Item</a>
+    </div>
+</div>
+{% endblock %}

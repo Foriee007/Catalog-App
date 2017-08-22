@@ -1,0 +1,10 @@
+<div class="col-md-3">
+    <h2>Quote Topics</h2>
+    <div class="list-group">
+        {% for c in categories %}
+            <a href="{{url_for('showCategoryItems', category_name = c.name,)}}" class="list-group-item {% if category %}{% if c.name == category %}active{% endif %}{% endif %}">
+                {{ c.name }}
+            </a>
+        {% endfor %}
+    </div>
+</div>

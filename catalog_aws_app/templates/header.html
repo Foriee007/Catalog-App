@@ -1,0 +1,25 @@
+<div class="page-header row top-menu">
+    <div class="col-md-6">
+        <h2>
+            <a href="{{url_for('showCatalog')}}">
+                <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Home</button>
+            </a>
+        </h2>
+    </div>
+
+    <div class="col-md-6 text-right">
+        <div class="login_logout">
+                {% if user %}
+                    <a href="{{url_for('disconnect')}}" class="btn btn-default">Sign Out [{{user.name}}]</a>
+                {% elif login %}
+                    <div class=""></div>
+                {% else %}
+                    <a href="{{url_for('showLogin')}}">
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Sign In</button>
+                    </a>
+                {% endif %}
+        </div>
+    </div>
+</div>
