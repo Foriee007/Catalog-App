@@ -41,7 +41,8 @@ You can visit http://18.220.158.181 for the website deployed.
     ```
       ssh-keygen -t rsa
 
-  To login
+      To login
+      
       ssh -i .ssh/grader_udacity grader@34.210.194.203 -p 2200
       ```
 
